@@ -31,10 +31,12 @@ class HNTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "openLink" {
-            if let webViewController = segue.destination as? WebViewController {
-                let path = self.tableView.indexPathForSelectedRow
-                let urlString = HNposts[(path?.row)!].url
-                webViewController.url = urlString
+            if let navcon = segue.destination as? UINavigationController {
+                if let webViewController = navcon.visibleViewController as? WebViewController {
+                    let path = self.tableView.indexPathForSelectedRow
+                    let urlString = HNposts[(path?.row)!].url
+                    webViewController.url = urlString
+                }
             }
         }
     }
