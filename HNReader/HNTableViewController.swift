@@ -10,10 +10,21 @@ import UIKit
 
 class HNTableViewController: UITableViewController {
 
-    var HNposts = HNStories.getTop()
+    var HNposts = [HNPost]()
+    var category: String = "top"
     
     override func viewDidLoad() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         super.viewDidLoad()
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            let posts = HNStories.getPage(category: (self?.category)!)
+            DispatchQueue.main.async {
+                self?.HNposts = posts
+                self?.tableView.reloadData()
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }
+            
+        }
         tableView.estimatedRowHeight = tableView.rowHeight 
         tableView.rowHeight = UITableViewAutomaticDimension
     }

@@ -15,7 +15,7 @@ struct HNAPI {
             "new": "https://hacker-news.firebaseio.com/v0/newstories.json",
             "show": "https://hacker-news.firebaseio.com/v0/showstories.json",
             "best": "https://hacker-news.firebaseio.com/v0/beststories.json",
-            "job": "https://hacker-news.firebaseio.com/v0/jobstories.json",
+            "jobs": "https://hacker-news.firebaseio.com/v0/jobstories.json",
             "ask": "https://hacker-news.firebaseio.com/v0/askstories.json",
             ]
         var urls = Dictionary<String, URL>()
