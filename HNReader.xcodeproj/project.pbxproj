@@ -130,10 +130,10 @@
 		E1DFABE11F45BF0300B1B361 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E13C1C4A1F41888E0045B6EE /* HNPost.swift */,
 				E13C1C4E1F4188FB0045B6EE /* HNAPI.swift */,
-				E1DFABE41F45C0A400B1B361 /* HNComment.swift */,
 				E1DFABE61F45C2A600B1B361 /* HNItem.swift */,
+				E13C1C4A1F41888E0045B6EE /* HNPost.swift */,
+				E1DFABE41F45C0A400B1B361 /* HNComment.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

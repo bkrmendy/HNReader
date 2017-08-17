@@ -33,11 +33,9 @@ class HNItem {
         return nil
     }
     
-    init(){
-        
-    }
+    init() { }
     
-    func setup(json data: Dictionary<String, Any>){
+    func setup(json data: [String: Any]){
         self.by = data["by"] as? String
         self.score = data["score"] as? Int
         self.type = data["type"] as? String

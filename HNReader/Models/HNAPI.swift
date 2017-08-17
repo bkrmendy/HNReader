@@ -32,8 +32,8 @@ struct HNAPI {
     }()
     
     //parses the JSON response of a HN post/item with a given ID to a [String: Any]
-    static func getHNItemJSON(item id: String) -> [String: Any]? {
-        if let response = itemURL(post: id){
+    static func getHNItemJSON(item id: Int) -> [String: Any]? {
+        if let response = itemURL(post: String(id)){
             if let post = try? JSONSerialization.jsonObject(with: response, options: []) {
                 if let dict = post as? [String: Any] {
                     return dict
@@ -54,10 +54,10 @@ struct HNAPI {
         if HNAPI.URLs.keys.contains(id) {
             if let response = try? Data(contentsOf: HNAPI.URLs[id]!) {
                 if let posts = try? JSONSerialization.jsonObject(with: response, options: []) {
-                    if let ans = posts as? [Any] {
+                    if let ans = posts as? [Int] {
                         let less = ans[0..<10]
                         for l in less {
-                            hnposts.append(HNPost(id: "\(l)"))
+                            hnposts.append(HNPost(json: l))
                         }
                         return hnposts
                     }

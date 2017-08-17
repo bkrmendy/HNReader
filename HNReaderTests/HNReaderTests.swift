@@ -21,9 +21,14 @@ class HNReaderTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        let post = HNPost(id: "8863")
+    func testPost() {
+        let post = HNPost(json: 8863)
         print("\(post)")
+    }
+    
+    func testComment(){
+        let comment = HNComment(item: 2921983)
+        print("\(comment)")
     }
     
     func testPerformanceExample() {

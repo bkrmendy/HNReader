@@ -8,11 +8,26 @@
 
 import Foundation
 
-class HNComment: HNItem {
+class HNComment: HNItem, CustomStringConvertible {
+    var description: String {
+        return "HNComment \(by!) \(age!) \(text!) \(children)"
+    }
+    
     var text: String?
     var children: [HNComment]?
     
-    init(item json: [String: Any]?) {
-        
+    init(item id: Int) {
+        super.init()
+        if let json = HNAPI.getHNItemJSON(item: id) {
+            setup(json: json)
+            self.text = json["text"] as? String
+            if let kids = json["kids"] as? [Any] {
+                children = [HNComment]()
+                for kid in kids {
+                    let kidID = kid as? Int
+                    children?.append(HNComment(item: kidID!))
+                }
+            }
+        }
     }
 }

@@ -9,23 +9,20 @@
 import Foundation
 
 class HNPost: HNItem, CustomStringConvertible {
+    var url: String?
+    var title: String?
+    
     var description: String {
         return "HN Post: \(url!) \(title!) \(by!) \(age!) \(score!)"
     }
     
-    var url: String?
-    var title: String?
-    
-    init(id: String) {
+    init(json id: Int) {
         super.init()
-        if let response = HNAPI.itemURL(post: id){
-            if let post = try? JSONSerialization.jsonObject(with: response, options: []) {
-                if let dict = post as? [String: Any] {
-                    setup(json: dict)
-                    self.url = dict["url"] as? String
-                    self.title = dict["title"] as? String
-                }
-            }
+        if let data = HNAPI.getHNItemJSON(item: id) {
+            setup(json: data)
+            self.url = data["url"] as? String
+            self.title = data["title"] as? String
         }
     }
 }
+
