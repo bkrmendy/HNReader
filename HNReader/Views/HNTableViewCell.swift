@@ -20,8 +20,8 @@ class HNTableViewCell: UITableViewCell {
     
     func setup(post data: HNPost) {
         self.titleLabel.text = data.title
-        self.posterLabel.text = "by: \(String(describing: data.by))"
-        self.ageLabel.text = data.age
-        self.scoreLabel.text = "score: \(String(describing: data.score))"
+        self.posterLabel.text = "by: \(String(describing: data.by!))"
+        self.ageLabel.text = data.age!
+        self.scoreLabel.text = "score: \(String(describing: data.score!))"
     }
 }

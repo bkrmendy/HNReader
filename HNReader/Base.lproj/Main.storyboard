@@ -183,15 +183,15 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="322" height="60.5"/>
                                                     <subviews>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Title" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Spd-MC-Olc">
-                                                            <rect key="frame" x="0.0" y="20.5" width="0.0" height="19.5"/>
+                                                            <rect key="frame" x="0.0" y="20.5" width="242" height="19.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6c3-gg-DGh">
-                                                            <rect key="frame" x="-10" y="15.5" width="0.0" height="30"/>
+                                                            <rect key="frame" x="242" y="15.5" width="80" height="30"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="Q0y-T6-rHd"/>
+                                                                <constraint firstAttribute="width" constant="80" id="Q0y-T6-rHd"/>
                                                                 <constraint firstAttribute="height" constant="30" id="RB1-zN-BrP"/>
                                                             </constraints>
                                                             <state key="normal" title="Comments"/>

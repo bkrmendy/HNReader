@@ -22,8 +22,8 @@ class HNReaderTests: XCTestCase {
     }
     
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let post = HNPost(id: "8863")
+        print("\(post)")
     }
     
     func testPerformanceExample() {

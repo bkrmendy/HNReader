@@ -10,7 +10,7 @@ import Foundation
 
 class HNPost: HNItem, CustomStringConvertible {
     var description: String {
-        return "HN Post"
+        return "HN Post: \(url!) \(title!) \(by!) \(age!) \(score!)"
     }
     
     var url: String?
@@ -21,7 +21,7 @@ class HNPost: HNItem, CustomStringConvertible {
         if let response = HNAPI.itemURL(post: id){
             if let post = try? JSONSerialization.jsonObject(with: response, options: []) {
                 if let dict = post as? [String: Any] {
-                    super.setup(json: dict)
+                    setup(json: dict)
                     self.url = dict["url"] as? String
                     self.title = dict["title"] as? String
                 }

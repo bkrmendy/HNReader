@@ -20,10 +20,10 @@ class HNItem {
         if let mins = created?.minute, let hrs = created?.hour {
             if mins > 0 {
                 if hrs > 0 {
-                    return "\(hrs) hours ago"
+                    return "\(String(describing: hrs)) hours ago"
                 }
                 else {
-                    return "\(mins) minutes ago"
+                    return "\(String(describing: mins)) minutes ago"
                 }
             }
             else {
