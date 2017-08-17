@@ -16,12 +16,13 @@
 		E13A438C1F404779005EFA24 /* HNTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13A438B1F404779005EFA24 /* HNTableViewController.swift */; };
 		E13A438E1F4047B1005EFA24 /* HNTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13A438D1F4047B1005EFA24 /* HNTableViewCell.swift */; };
 		E13C1C4B1F41888E0045B6EE /* HNPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13C1C4A1F41888E0045B6EE /* HNPost.swift */; };
-		E13C1C4D1F4188E10045B6EE /* HNStories.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13C1C4C1F4188E10045B6EE /* HNStories.swift */; };
 		E13C1C4F1F4188FB0045B6EE /* HNAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13C1C4E1F4188FB0045B6EE /* HNAPI.swift */; };
 		E16EF66E1F43243500AD5D6D /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16EF66D1F43243500AD5D6D /* WebViewController.swift */; };
 		E1AEF3EC1F45A91900DCF604 /* CommentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AEF3EB1F45A91900DCF604 /* CommentsTableViewController.swift */; };
 		E1CD0E961F42FC6B00FC34F7 /* HNStoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CD0E951F42FC6B00FC34F7 /* HNStoriesTableViewController.swift */; };
 		E1CD0E981F430F7100FC34F7 /* SuperSplitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CD0E971F430F7100FC34F7 /* SuperSplitController.swift */; };
+		E1DFABE51F45C0A400B1B361 /* HNComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DFABE41F45C0A400B1B361 /* HNComment.swift */; };
+		E1DFABE71F45C2A600B1B361 /* HNItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DFABE61F45C2A600B1B361 /* HNItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,12 +49,13 @@
 		E13A438B1F404779005EFA24 /* HNTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNTableViewController.swift; sourceTree = "<group>"; };
 		E13A438D1F4047B1005EFA24 /* HNTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNTableViewCell.swift; sourceTree = "<group>"; };
 		E13C1C4A1F41888E0045B6EE /* HNPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNPost.swift; sourceTree = "<group>"; };
-		E13C1C4C1F4188E10045B6EE /* HNStories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNStories.swift; sourceTree = "<group>"; };
 		E13C1C4E1F4188FB0045B6EE /* HNAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNAPI.swift; sourceTree = "<group>"; };
 		E16EF66D1F43243500AD5D6D /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		E1AEF3EB1F45A91900DCF604 /* CommentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewController.swift; sourceTree = "<group>"; };
 		E1CD0E951F42FC6B00FC34F7 /* HNStoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNStoriesTableViewController.swift; sourceTree = "<group>"; };
 		E1CD0E971F430F7100FC34F7 /* SuperSplitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperSplitController.swift; sourceTree = "<group>"; };
+		E1DFABE41F45C0A400B1B361 /* HNComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNComment.swift; sourceTree = "<group>"; };
+		E1DFABE61F45C2A600B1B361 /* HNItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,14 +97,11 @@
 		E13A43691F4046FD005EFA24 /* HNReader */ = {
 			isa = PBXGroup;
 			children = (
+				E1DFABE31F45BF1300B1B361 /* Controllers */,
+				E1DFABE21F45BF0D00B1B361 /* Views */,
+				E1DFABE11F45BF0300B1B361 /* Models */,
 				E13A438A1F40470F005EFA24 /* Supporting Files */,
 				E13A436E1F4046FD005EFA24 /* Main.storyboard */,
-				E1AEF3EB1F45A91900DCF604 /* CommentsTableViewController.swift */,
-				E16EF66D1F43243500AD5D6D /* WebViewController.swift */,
-				E1CD0E951F42FC6B00FC34F7 /* HNStoriesTableViewController.swift */,
-				E1CD0E971F430F7100FC34F7 /* SuperSplitController.swift */,
-				E13A438D1F4047B1005EFA24 /* HNTableViewCell.swift */,
-				E13A438B1F404779005EFA24 /* HNTableViewController.swift */,
 				E13A43761F4046FD005EFA24 /* Info.plist */,
 				E11085AC1F4453C5003FA61F /* TODO.swift */,
 			);
@@ -121,14 +120,42 @@
 		E13A438A1F40470F005EFA24 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				E13C1C4A1F41888E0045B6EE /* HNPost.swift */,
-				E13C1C4E1F4188FB0045B6EE /* HNAPI.swift */,
-				E13C1C4C1F4188E10045B6EE /* HNStories.swift */,
 				E13A436A1F4046FD005EFA24 /* AppDelegate.swift */,
 				E13A43711F4046FD005EFA24 /* Assets.xcassets */,
 				E13A43731F4046FD005EFA24 /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E1DFABE11F45BF0300B1B361 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E13C1C4A1F41888E0045B6EE /* HNPost.swift */,
+				E13C1C4E1F4188FB0045B6EE /* HNAPI.swift */,
+				E1DFABE41F45C0A400B1B361 /* HNComment.swift */,
+				E1DFABE61F45C2A600B1B361 /* HNItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E1DFABE21F45BF0D00B1B361 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E13A438B1F404779005EFA24 /* HNTableViewController.swift */,
+				E13A438D1F4047B1005EFA24 /* HNTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E1DFABE31F45BF1300B1B361 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E1CD0E971F430F7100FC34F7 /* SuperSplitController.swift */,
+				E1CD0E951F42FC6B00FC34F7 /* HNStoriesTableViewController.swift */,
+				E16EF66D1F43243500AD5D6D /* WebViewController.swift */,
+				E1AEF3EB1F45A91900DCF604 /* CommentsTableViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,12 +262,13 @@
 				E1AEF3EC1F45A91900DCF604 /* CommentsTableViewController.swift in Sources */,
 				E13C1C4F1F4188FB0045B6EE /* HNAPI.swift in Sources */,
 				E16EF66E1F43243500AD5D6D /* WebViewController.swift in Sources */,
-				E13C1C4D1F4188E10045B6EE /* HNStories.swift in Sources */,
 				E1CD0E961F42FC6B00FC34F7 /* HNStoriesTableViewController.swift in Sources */,
 				E13A436B1F4046FD005EFA24 /* AppDelegate.swift in Sources */,
 				E11085AD1F4453C5003FA61F /* TODO.swift in Sources */,
 				E1CD0E981F430F7100FC34F7 /* SuperSplitController.swift in Sources */,
 				E13A438C1F404779005EFA24 /* HNTableViewController.swift in Sources */,
+				E1DFABE71F45C2A600B1B361 /* HNItem.swift in Sources */,
+				E1DFABE51F45C0A400B1B361 /* HNComment.swift in Sources */,
 				E13A438E1F4047B1005EFA24 /* HNTableViewCell.swift in Sources */,
 				E13C1C4B1F41888E0045B6EE /* HNPost.swift in Sources */,
 			);

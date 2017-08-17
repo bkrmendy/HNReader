@@ -9,17 +9,17 @@
 import UIKit
 
 class HNTableViewController: UITableViewController {
-
-    var HNposts = [HNPost]()
+    
+    var HNposts: [HNPost]?
     var category: String = "top"
     
     override func viewDidLoad() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         super.viewDidLoad()
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-            let posts = HNStories.getPage(category: (self?.category)!)
+            let posts = HNAPI.getPage(category: (self?.category)!)
             DispatchQueue.main.async {
-                self?.HNposts = posts
+                self?.HNposts = posts!
                 self?.tableView.reloadData()
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }
@@ -34,7 +34,7 @@ class HNTableViewController: UITableViewController {
             if let navcon = segue.destination as? UINavigationController {
                 if let webViewController = navcon.visibleViewController as? WebViewController {
                     let path = self.tableView.indexPathForSelectedRow
-                    let urlString = HNposts[(path?.row)!].url
+                    let urlString = HNposts?[(path?.row)!].url
                     webViewController.url = urlString
                 }
             }
@@ -46,17 +46,14 @@ class HNTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return HNposts.count
+        return HNposts?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HNCell", for: indexPath) as? HNTableViewCell
-        let post = HNposts[indexPath.row]
-        cell?.titleLabel.text = post.title
-        cell?.posterLabel.text = "by: \(post.by)"
-        cell?.ageLabel.text = post.age
-        cell?.scoreLabel.text = "score: \(post.score)"
-        
+        if let post = HNposts?[indexPath.row] {
+            cell?.setup(post: post)
+        }
         return cell!
     }
     
@@ -66,7 +63,7 @@ class HNTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete {
-            HNposts.remove(at: indexPath.row)
+            HNposts?.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)            
         }
     }

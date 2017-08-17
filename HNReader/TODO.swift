@@ -10,7 +10,6 @@ import Foundation
 
 /*
  * add comments section     BIG UN
- * add custom table cells
  * add pimped-out browser
- * add better design
+ * add better design        (lots of room here)
  */

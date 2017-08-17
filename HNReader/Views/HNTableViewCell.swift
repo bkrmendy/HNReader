@@ -9,8 +9,6 @@
 import UIKit
 
 class HNTableViewCell: UITableViewCell {
-    
-    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var posterLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
@@ -20,16 +18,10 @@ class HNTableViewCell: UITableViewCell {
         
     }
     
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    func setup(post data: HNPost) {
+        self.titleLabel.text = data.title
+        self.posterLabel.text = "by: \(String(describing: data.by))"
+        self.ageLabel.text = data.age
+        self.scoreLabel.text = "score: \(String(describing: data.score))"
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }
