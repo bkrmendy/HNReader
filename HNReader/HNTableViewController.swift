@@ -50,11 +50,14 @@ class HNTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HNCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HNCell", for: indexPath) as? HNTableViewCell
         let post = HNposts[indexPath.row]
-        cell.textLabel?.text = post.title
-        cell.detailTextLabel?.text = post.url
-        return cell
+        cell?.titleLabel.text = post.title
+        cell?.posterLabel.text = "by: \(post.by)"
+        cell?.ageLabel.text = post.age
+        cell?.scoreLabel.text = "score: \(post.score)"
+        
+        return cell!
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

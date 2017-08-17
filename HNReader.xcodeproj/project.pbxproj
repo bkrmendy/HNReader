@@ -19,6 +19,7 @@
 		E13C1C4D1F4188E10045B6EE /* HNStories.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13C1C4C1F4188E10045B6EE /* HNStories.swift */; };
 		E13C1C4F1F4188FB0045B6EE /* HNAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13C1C4E1F4188FB0045B6EE /* HNAPI.swift */; };
 		E16EF66E1F43243500AD5D6D /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16EF66D1F43243500AD5D6D /* WebViewController.swift */; };
+		E1AEF3EC1F45A91900DCF604 /* CommentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AEF3EB1F45A91900DCF604 /* CommentsTableViewController.swift */; };
 		E1CD0E961F42FC6B00FC34F7 /* HNStoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CD0E951F42FC6B00FC34F7 /* HNStoriesTableViewController.swift */; };
 		E1CD0E981F430F7100FC34F7 /* SuperSplitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CD0E971F430F7100FC34F7 /* SuperSplitController.swift */; };
 /* End PBXBuildFile section */
@@ -50,6 +51,7 @@
 		E13C1C4C1F4188E10045B6EE /* HNStories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNStories.swift; sourceTree = "<group>"; };
 		E13C1C4E1F4188FB0045B6EE /* HNAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNAPI.swift; sourceTree = "<group>"; };
 		E16EF66D1F43243500AD5D6D /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		E1AEF3EB1F45A91900DCF604 /* CommentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewController.swift; sourceTree = "<group>"; };
 		E1CD0E951F42FC6B00FC34F7 /* HNStoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNStoriesTableViewController.swift; sourceTree = "<group>"; };
 		E1CD0E971F430F7100FC34F7 /* SuperSplitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperSplitController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,6 +97,7 @@
 			children = (
 				E13A438A1F40470F005EFA24 /* Supporting Files */,
 				E13A436E1F4046FD005EFA24 /* Main.storyboard */,
+				E1AEF3EB1F45A91900DCF604 /* CommentsTableViewController.swift */,
 				E16EF66D1F43243500AD5D6D /* WebViewController.swift */,
 				E1CD0E951F42FC6B00FC34F7 /* HNStoriesTableViewController.swift */,
 				E1CD0E971F430F7100FC34F7 /* SuperSplitController.swift */,
@@ -229,6 +232,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1AEF3EC1F45A91900DCF604 /* CommentsTableViewController.swift in Sources */,
 				E13C1C4F1F4188FB0045B6EE /* HNAPI.swift in Sources */,
 				E16EF66E1F43243500AD5D6D /* WebViewController.swift in Sources */,
 				E13C1C4D1F4188E10045B6EE /* HNStories.swift in Sources */,

@@ -11,19 +11,9 @@ import Foundation
 class HNPost: CustomStringConvertible {
     var url: String?
     var title: String = ""
-    
-    public var description: String {
-        return "HNPost by \(by): \(title), created \(age) ago, URL: \((url != nil ? url! : "non-url")), score: \(score)\n"
-    }
-    
-    public var detailString: String {
-        return "posted by \(by) \(age) ago"
-    }
-    
-    private var score: Int = 0
-    private var created: DateComponents = DateComponents()
-    private var by: String = ""
-    private var age: String {
+    var by: String = ""
+    var score: Int = 0
+    var age: String {
         if created.minute! > 1 {
             if created.hour! > 1 {
                 return "\(String(describing: created.hour!)) hours ago"
@@ -34,6 +24,17 @@ class HNPost: CustomStringConvertible {
             return "just now"
         }
     }
+    
+    public var description: String {
+        return "HNPost by \(by): \(title), created \(age) ago, URL: \((url != nil ? url! : "non-url")), score: \(score)\n"
+    }
+    
+    public var detailString: String {
+        return "posted by \(by) \(age) ago"
+    }
+    
+    private var created: DateComponents = DateComponents()
+    
     
     init(id: String) {
         if let response = try? Data(contentsOf: HNAPI.postURL(post: id)){
