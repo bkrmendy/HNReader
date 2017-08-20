@@ -5,6 +5,10 @@
 //  Created by Bertalan Kormendy on 2017. 08. 17..
 //  Copyright © 2017. Bertalan Kormendy. All rights reserved.
 //
+//  IN THIS FILE:   comments table view controller
+//                  nothing special
+//
+//
 
 import UIKit
 

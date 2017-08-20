@@ -5,6 +5,11 @@
 //  Created by Bertalan Kormendy on 2017. 08. 15..
 //  Copyright © 2017. Bertalan Kormendy. All rights reserved.
 //
+//  IN THIS FILE:   custom webview controller
+//                  loads url on viewDidLoad() that was passed before the segue
+//                  TODO: navigation (< >), open in Safari, share
+//
+//
 
 import UIKit
 

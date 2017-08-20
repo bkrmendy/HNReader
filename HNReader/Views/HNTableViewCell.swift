@@ -5,6 +5,11 @@
 //  Created by Bertalan Kormendy on 2017. 08. 13..
 //  Copyright © 2017. Bertalan Kormendy. All rights reserved.
 //
+//  IN THIS FILE:   the custom cell implementation
+//                  does nothing really
+//
+//
+
 
 import UIKit
 
@@ -18,6 +23,7 @@ class HNTableViewCell: UITableViewCell {
         
     }
     
+    //used instead of init() (skill level too low as of now)
     func setup(post data: HNPost) {
         self.titleLabel.text = data.title
         self.posterLabel.text = "by: \(String(describing: data.by!))"

@@ -5,6 +5,11 @@
 //  Created by Bertalan Kormendy on 2017. 08. 15..
 //  Copyright © 2017. Bertalan Kormendy. All rights reserved.
 //
+//  IN THIS FILE:   static "Stories" tabel view controller
+//                  Features: segue that controls which story feed should be loaded into the tableview
+//                  Needs better design
+//
+//
 
 import UIKit
 

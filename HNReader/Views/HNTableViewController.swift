@@ -5,6 +5,11 @@
 //  Created by Bertalan Kormendy on 2017. 08. 13..
 //  Copyright © 2017. Bertalan Kormendy. All rights reserved.
 //
+//  IN THIS FILE:   the custom table view controller implementation
+//                  Features:   delete action
+//                              segue to webview
+//                              no sections
+//
 
 import UIKit
 
@@ -41,6 +46,7 @@ class HNTableViewController: UITableViewController {
         }
     }
     
+    //no sections (yet)
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -57,10 +63,12 @@ class HNTableViewController: UITableViewController {
         return cell!
     }
     
+    //allows delete operation
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
+    //defines delete operation
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete {
             HNposts?.remove(at: indexPath.row)

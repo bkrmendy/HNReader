@@ -5,6 +5,9 @@
 //  Created by Bertalan Kormendy on 2017. 08. 14..
 //  Copyright © 2017. Bertalan Kormendy. All rights reserved.
 //
+//  IN THIS FILE: data model of a HN post item, inherits from HNItem and only adds the post-specific fields.
+//
+//
 
 import Foundation
 

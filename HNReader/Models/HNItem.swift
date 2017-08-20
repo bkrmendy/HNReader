@@ -5,6 +5,10 @@
 //  Created by Bertalan Kormendy on 2017. 08. 17..
 //  Copyright © 2017. Bertalan Kormendy. All rights reserved.
 //
+//  IN THIS FILE:   data model of a generic HN item (post or comment), largely corresponds to the fields in the JSON response
+//                  Actually designed as an abstract class (I've considered using a protocol but I need the function implementations since most of them are the same between the Post and Comment classes)
+//
+
 
 import Foundation
 
@@ -16,6 +20,7 @@ class HNItem {
     
     private var created: DateComponents?
     
+    //returns the age of the item calculated from the posting date (x hours/minutes ago)
     var age: String? {
         if let mins = created?.minute, let hrs = created?.hour {
             if mins > 0 {
@@ -35,6 +40,7 @@ class HNItem {
     
     init() { }
     
+    //used instead of init() because of the stupid "init() not called on all branches" issue
     func setup(json data: [String: Any]){
         self.by = data["by"] as? String
         self.score = data["score"] as? Int

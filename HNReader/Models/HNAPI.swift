@@ -48,15 +48,14 @@ struct HNAPI {
         return try? Data(contentsOf: URL(string: "https://hacker-news.firebaseio.com/v0/item/\(id).json")!)
     }
     
-    //get the 
+    //gets the list of post items for a given HN story type
     static func getPage(category id: String) -> [HNPost]? {
         var hnposts: [HNPost] = []
         if HNAPI.URLs.keys.contains(id) {
             if let response = try? Data(contentsOf: HNAPI.URLs[id]!) {
                 if let posts = try? JSONSerialization.jsonObject(with: response, options: []) {
                     if let ans = posts as? [Int] {
-                        let less = ans[0..<10]
-                        for l in less {
+                        for l in ans {
                             hnposts.append(HNPost(json: l))
                         }
                         return hnposts
