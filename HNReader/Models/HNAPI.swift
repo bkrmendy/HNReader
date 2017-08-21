@@ -55,7 +55,8 @@ struct HNAPI {
             if let response = try? Data(contentsOf: HNAPI.URLs[id]!) {
                 if let posts = try? JSONSerialization.jsonObject(with: response, options: []) {
                     if let ans = posts as? [Int] {
-                        for l in ans {
+                        let less = ans[0..<50]
+                        for l in less {
                             hnposts.append(HNPost(json: l))
                         }
                         return hnposts

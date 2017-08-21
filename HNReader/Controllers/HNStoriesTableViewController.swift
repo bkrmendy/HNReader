@@ -19,27 +19,28 @@ class HNStoriesTableViewController: UITableViewController {
         self.title = "Stories"
     }
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let navcon = segue.destination as? UINavigationController {
-            let storiesViewController = navcon.visibleViewController as? HNTableViewController ?? nil
-            storiesViewController?.category = segue.identifier!
-            switch segue.identifier! {
-            case "top":
-                storiesViewController?.title = "Top Stories"
-            case "best":
-                storiesViewController?.title = "Best Stories"
-            case "new":
-                storiesViewController?.title = "New Stories"
-            case "ask":
-                storiesViewController?.title = "Ask HN"
-            case "show":
-                storiesViewController?.title = "Show HN"
-            case "jobs":
-                storiesViewController?.title = "Job Postings"
-            default:
-                break
+            if let storiesViewController = navcon.visibleViewController as? HNTableViewController {
+                storiesViewController.category = segue.identifier!
+                switch segue.identifier! {
+                case "top":
+                    storiesViewController.title = "Top Stories"
+                case "best":
+                    storiesViewController.title = "Best Stories"
+                case "new":
+                    storiesViewController.title = "New Stories"
+                case "ask":
+                    storiesViewController.title = "Ask HN"
+                case "show":
+                    storiesViewController.title = "Show HN"
+                case "jobs":
+                    storiesViewController.title = "Job Postings"
+                default:
+                    break
+                }
             }
         }
     }

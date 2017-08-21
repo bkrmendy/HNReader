@@ -15,7 +15,10 @@ import Foundation
 class HNComment: HNItem, CustomStringConvertible {
     
     var description: String {
-        return "HNComment \(by) \(age) \(text) \(children)"
+        if let _ = deleted {
+            return "deleted HNComment with id \(String(describing: id!))"
+        }
+        return "HNComment \(String(describing: by)) \(String(describing: age)) \(text) \(String(describing: children))"
     }
     
     var text: String?
@@ -24,7 +27,6 @@ class HNComment: HNItem, CustomStringConvertible {
     init(item id: Int) {
         super.init()
         if let json = HNAPI.getHNItemJSON(item: id) {
-            print("\(id)")
             setup(json: json)
             self.text = json["text"] as? String
             if let kids = json["kids"] as? [Any] {

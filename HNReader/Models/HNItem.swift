@@ -13,10 +13,12 @@
 import Foundation
 
 class HNItem {
+    var id: Int?
     var by: String?
     var score: Int?
     var type: String?
     var descendants: Int?
+    var deleted: Bool?
     
     private var created: DateComponents?
     
@@ -42,6 +44,11 @@ class HNItem {
     
     //used instead of init() because of the stupid "init() not called on all branches" issue
     func setup(json data: [String: Any]){
+        if let deleted = data["deleted"] as? Bool {
+            print(deleted)
+            self.deleted = true
+        }
+        self.id = data["id"] as? Int
         self.by = data["by"] as? String
         self.score = data["score"] as? Int
         self.type = data["type"] as? String
