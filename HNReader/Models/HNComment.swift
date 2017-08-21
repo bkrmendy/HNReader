@@ -22,29 +22,33 @@ class HNComment: HNItem, CustomStringConvertible {
     }
     
     var text: String?
+    var level: Int?
     
-    init(item id: Int) {
+    init(item id: Int, level: Int) {
         super.init()
         if let json = HNAPI.getHNItemJSON(item: id) {
             setup(json: json)
             self.text = json["text"] as? String
         }
+        self.level = level
     }
     
     static func loadCommentChildren(item ids: [Int]) -> [HNComment] {
         var accumulator = [HNComment]()
+        var startingIndent = 0
         for i in ids {
-            loadComment(accumulator: &accumulator, item: i)
+            loadComment(accumulator: &accumulator, item: i, indent: &startingIndent)
         }
         return accumulator
     }
     
-    private static func loadComment(accumulator list: inout [HNComment], item id: Int) {
-        let thisComment = HNComment(item: id)
+    private static func loadComment(accumulator list: inout [HNComment], item id: Int, indent level: inout Int) {
+        let thisComment = HNComment(item: id, level: level)
         list.append(thisComment)
+        var incIndent = level + 1
         if let kids = thisComment.childrenIDs {
             for k in kids{
-                loadComment(accumulator: &list, item: k)
+                loadComment(accumulator: &list, item: k, indent: &incIndent)
             }
         }
     }

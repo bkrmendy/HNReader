@@ -40,6 +40,7 @@ class CommentsTableViewController: UITableViewController {
             let comment = comments?[indexPath.row]
             cell.textLabel?.text = comment?.text
             cell.detailTextLabel?.text = comment?.by
+            cell.separatorInset.left = CGFloat((comment?.level)!*50)
         }
         return cell
     }

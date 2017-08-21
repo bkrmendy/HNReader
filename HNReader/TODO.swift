@@ -9,7 +9,8 @@
 import Foundation
 
 /*
- * add comments section     BIG UN
+ * fix comment formatting
+ * address performance issues
  * add pimped-out browser
- * add better design        (lots of room here)
+ * add better browser
  */
