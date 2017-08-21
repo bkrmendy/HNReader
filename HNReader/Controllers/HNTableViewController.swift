@@ -13,7 +13,7 @@
 
 import UIKit
 
-class HNTableViewController: UITableViewController {
+class HNTableViewController: UITableViewController, CellDelegator {
     
     var HNposts: [HNPost]?
     var category: String = "top"
@@ -28,14 +28,14 @@ class HNTableViewController: UITableViewController {
                 self?.tableView.reloadData()
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }
-            
         }
         tableView.estimatedRowHeight = tableView.rowHeight 
         tableView.rowHeight = UITableViewAutomaticDimension
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "openLink" {
+        switch segue.identifier! {
+        case "openLink":
             if let navcon = segue.destination as? UINavigationController {
                 if let webViewController = navcon.visibleViewController as? WebViewController {
                     let path = self.tableView.indexPathForSelectedRow
@@ -43,6 +43,16 @@ class HNTableViewController: UITableViewController {
                     webViewController.url = urlString
                 }
             }
+        case "openComments":
+            if let navcon = segue.destination as? UINavigationController {
+                if let commentsTable = navcon.visibleViewController as? CommentsTableViewController {
+                    if let IDs = sender as? [Int] {
+                        commentsTable.comments = HNComment.loadCommentChildren(item: IDs)
+                    }
+                }
+            }
+        default:
+            break
         }
     }
     
@@ -57,6 +67,7 @@ class HNTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HNCell", for: indexPath) as? HNTableViewCell
+        cell?.delegate = self
         if let post = HNposts?[indexPath.row] {
             cell?.setup(post: post)
         }
@@ -74,5 +85,9 @@ class HNTableViewController: UITableViewController {
             HNposts?.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)            
         }
+    }
+    
+    func callSegueFromCell(data object: Any?) {
+        self.performSegue(withIdentifier: "openComments", sender: object)
     }
 }

@@ -19,6 +19,8 @@ class HNItem {
     var type: String?
     var descendants: Int?
     var deleted: Bool?
+    var childrenIDs: [Int]?
+    var childComments: [HNComment]?
     
     private var created: DateComponents?
     
@@ -55,6 +57,8 @@ class HNItem {
         let creation_time = data["time"] as! Double
         self.created = Calendar.current.dateComponents([Calendar.Component.hour, Calendar.Component.minute], from: Date(timeIntervalSince1970: creation_time), to: Date())
         self.descendants = data["descendants"] as? Int
+        if let kids = data["kids"] as? [Int] {
+            self.childrenIDs = kids
+        }
     }
-    
 }

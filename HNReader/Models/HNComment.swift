@@ -18,23 +18,33 @@ class HNComment: HNItem, CustomStringConvertible {
         if let _ = deleted {
             return "deleted HNComment with id \(String(describing: id!))"
         }
-        return "HNComment \(String(describing: by)) \(String(describing: age)) \(text) \(String(describing: children))"
+        return "HNComment \(String(describing: by)) \(String(describing: age)) \(text) \(String(describing: childrenIDs))"
     }
     
     var text: String?
-    var children: [HNComment]?
     
     init(item id: Int) {
         super.init()
         if let json = HNAPI.getHNItemJSON(item: id) {
             setup(json: json)
             self.text = json["text"] as? String
-            if let kids = json["kids"] as? [Any] {
-                children = [HNComment]()
-                for kid in kids {
-                    let kidID = kid as? Int
-                    children?.append(HNComment(item: kidID!))
-                }
+        }
+    }
+    
+    static func loadCommentChildren(item ids: [Int]) -> [HNComment] {
+        var accumulator = [HNComment]()
+        for i in ids {
+            loadComment(accumulator: &accumulator, item: i)
+        }
+        return accumulator
+    }
+    
+    private static func loadComment(accumulator list: inout [HNComment], item id: Int) {
+        let thisComment = HNComment(item: id)
+        list.append(thisComment)
+        if let kids = thisComment.childrenIDs {
+            for k in kids{
+                loadComment(accumulator: &list, item: k)
             }
         }
     }

@@ -19,8 +19,13 @@ class HNTableViewCell: UITableViewCell {
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
     
-    @IBAction func viewComments(_ sender: UIButton) {
-        
+    var delegate: CellDelegator!
+    var children: [Int]?
+    
+    @IBAction func openComment(_ sender: UIButton) {
+        if self.delegate != nil, children != nil {
+            self.delegate.callSegueFromCell(data: children)
+        }
     }
     
     //used instead of init() (skill level too low as of now)
@@ -29,5 +34,10 @@ class HNTableViewCell: UITableViewCell {
         self.posterLabel.text = "by: \(String(describing: data.by!))"
         self.ageLabel.text = data.age!
         self.scoreLabel.text = "score: \(String(describing: data.score!))"
+        self.children = data.childrenIDs
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
     }
 }
