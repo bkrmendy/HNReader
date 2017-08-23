@@ -17,6 +17,7 @@ class HNStoriesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Stories"
+        
     }
     // MARK: - Navigation
     

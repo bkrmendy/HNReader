@@ -70,6 +70,12 @@ class HNTableViewController: UITableViewController, CellDelegator {
         cell?.delegate = self
         if let post = HNposts?[indexPath.row] {
             cell?.setup(post: post)
+            cell?.isAccessibilityElement = true
+
+            cell?.commentsButton.isAccessibilityElement = true
+            cell?.commentsButton.accessibilityLabel = "Comments"
+            cell?.commentsButton.accessibilityHint = "Open link comments"
+            
         }
         return cell!
     }

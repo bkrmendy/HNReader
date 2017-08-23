@@ -190,6 +190,9 @@
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6c3-gg-DGh">
                                                             <rect key="frame" x="242" y="15.5" width="80" height="30"/>
+                                                            <accessibility key="accessibilityConfiguration" hint="Open comments" label="Comments">
+                                                                <accessibilityTraits key="traits" button="YES" link="YES" allowsDirectInteraction="YES"/>
+                                                            </accessibility>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="80" id="Q0y-T6-rHd"/>
                                                                 <constraint firstAttribute="height" constant="30" id="RB1-zN-BrP"/>
@@ -234,8 +237,13 @@
                                         <constraint firstItem="9Ro-td-S93" firstAttribute="leading" secondItem="cQr-Cg-dVR" secondAttribute="leading" constant="10" id="xvC-yl-LhH"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration" hint="News Item">
+                                    <accessibilityTraits key="traits" button="YES" link="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
                                 <connections>
                                     <outlet property="ageLabel" destination="w9Y-K8-8l8" id="43w-Qf-z4I"/>
+                                    <outlet property="commentsButton" destination="6c3-gg-DGh" id="w8R-MT-qK3"/>
                                     <outlet property="posterLabel" destination="F3g-mO-wcz" id="xJ2-Vo-jaf"/>
                                     <outlet property="scoreLabel" destination="XhN-Hk-pjK" id="vUk-DH-Xsj"/>
                                     <outlet property="titleLabel" destination="Spd-MC-Olc" id="PWN-W2-eqk"/>

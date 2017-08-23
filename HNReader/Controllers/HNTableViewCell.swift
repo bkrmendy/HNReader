@@ -18,6 +18,7 @@ class HNTableViewCell: UITableViewCell {
     @IBOutlet weak var posterLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
+    @IBOutlet weak var commentsButton: UIButton!
     
     var delegate: CellDelegator!
     var children: [Int]?
