@@ -39,6 +39,8 @@ class HNStoriesTableViewController: UITableViewController {
                     storiesViewController.title = "Show HN"
                 case "jobs":
                     storiesViewController.title = "Job Postings"
+                case "saved":
+                    storiesViewController.title = "Saved Posts"
                 default:
                     break
                 }

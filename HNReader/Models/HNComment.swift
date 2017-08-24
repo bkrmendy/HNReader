@@ -11,6 +11,7 @@
 
 
 import Foundation
+import UIKit
 
 class HNComment: HNItem, CustomStringConvertible {
     
@@ -26,11 +27,20 @@ class HNComment: HNItem, CustomStringConvertible {
     
     init(item id: Int, level: Int) {
         super.init()
+        self.level = level
         if let json = HNAPI.getHNItemJSON(item: id) {
             setup(json: json)
-            self.text = json["text"] as? String
+            if let text = json["text"] as? String {
+                let string = text.data(using: .utf8)
+                let options: [String: Any] = [
+                    NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
+                    NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue
+                ]
+                
+                let attributedString = try? NSAttributedString(data: string!, options: options, documentAttributes: nil)
+                self.text = attributedString?.string.replacingOccurrences(of: "<p>", with: "\n\n")
+            }
         }
-        self.level = level
     }
     
     static func loadCommentChildren(item ids: [Int]) -> [HNComment] {
