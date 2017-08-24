@@ -18,7 +18,6 @@
 		E13C1C4B1F41888E0045B6EE /* HNPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13C1C4A1F41888E0045B6EE /* HNPost.swift */; };
 		E13C1C4F1F4188FB0045B6EE /* HNAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13C1C4E1F4188FB0045B6EE /* HNAPI.swift */; };
 		E16EF66E1F43243500AD5D6D /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16EF66D1F43243500AD5D6D /* WebViewController.swift */; };
-		E173EA321F4B46F60080E38A /* CellDelegator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E173EA311F4B46F60080E38A /* CellDelegator.swift */; };
 		E1AEF3EC1F45A91900DCF604 /* CommentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AEF3EB1F45A91900DCF604 /* CommentsTableViewController.swift */; };
 		E1CD0E961F42FC6B00FC34F7 /* HNStoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CD0E951F42FC6B00FC34F7 /* HNStoriesTableViewController.swift */; };
 		E1CD0E981F430F7100FC34F7 /* SuperSplitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CD0E971F430F7100FC34F7 /* SuperSplitController.swift */; };
@@ -52,7 +51,6 @@
 		E13C1C4A1F41888E0045B6EE /* HNPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNPost.swift; sourceTree = "<group>"; };
 		E13C1C4E1F4188FB0045B6EE /* HNAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNAPI.swift; sourceTree = "<group>"; };
 		E16EF66D1F43243500AD5D6D /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
-		E173EA311F4B46F60080E38A /* CellDelegator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellDelegator.swift; sourceTree = "<group>"; };
 		E1AEF3EB1F45A91900DCF604 /* CommentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewController.swift; sourceTree = "<group>"; };
 		E1CD0E951F42FC6B00FC34F7 /* HNStoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNStoriesTableViewController.swift; sourceTree = "<group>"; };
 		E1CD0E971F430F7100FC34F7 /* SuperSplitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperSplitController.swift; sourceTree = "<group>"; };
@@ -150,7 +148,6 @@
 		E1DFABE31F45BF1300B1B361 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E173EA311F4B46F60080E38A /* CellDelegator.swift */,
 				E1CD0E971F430F7100FC34F7 /* SuperSplitController.swift */,
 				E1CD0E951F42FC6B00FC34F7 /* HNStoriesTableViewController.swift */,
 				E16EF66D1F43243500AD5D6D /* WebViewController.swift */,
@@ -263,7 +260,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1AEF3EC1F45A91900DCF604 /* CommentsTableViewController.swift in Sources */,
-				E173EA321F4B46F60080E38A /* CellDelegator.swift in Sources */,
 				E13C1C4F1F4188FB0045B6EE /* HNAPI.swift in Sources */,
 				E16EF66E1F43243500AD5D6D /* WebViewController.swift in Sources */,
 				E1CD0E961F42FC6B00FC34F7 /* HNStoriesTableViewController.swift in Sources */,

@@ -13,7 +13,7 @@
 
 import UIKit
 
-class HNTableViewController: UITableViewController, CellDelegator {
+class HNTableViewController: UITableViewController {
     
     var HNposts: [HNPost]?
     var category: String = "top"
@@ -46,9 +46,9 @@ class HNTableViewController: UITableViewController, CellDelegator {
         case "openComments":
             if let navcon = segue.destination as? UINavigationController {
                 if let commentsTable = navcon.visibleViewController as? CommentsTableViewController {
-                    if let IDs = sender as? [Int] {
-                        commentsTable.comments = HNComment.loadCommentChildren(item: IDs)
-                    }
+                    let index = sender as! Int
+                    let post = HNposts?[index]
+                    commentsTable.comments = HNComment.loadCommentChildren(item: (post?.childrenIDs)!)
                 }
             }
         default:
@@ -67,15 +67,8 @@ class HNTableViewController: UITableViewController, CellDelegator {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HNCell", for: indexPath) as? HNTableViewCell
-        cell?.delegate = self
         if let post = HNposts?[indexPath.row] {
-            cell?.setup(post: post)
-            cell?.isAccessibilityElement = true
-
-            cell?.commentsButton.isAccessibilityElement = true
-            cell?.commentsButton.accessibilityLabel = "Comments"
-            cell?.commentsButton.accessibilityHint = "Open link comments"
-            
+            cell?.setup(post: post)            
         }
         return cell!
     }
@@ -92,8 +85,24 @@ class HNTableViewController: UITableViewController, CellDelegator {
             tableView.deleteRows(at: [indexPath], with: .fade)            
         }
     }
-    
-    func callSegueFromCell(data object: Any?) {
-        self.performSegue(withIdentifier: "openComments", sender: object)
+ 
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let comments = UITableViewRowAction(style: .default, title: "Comments") { [weak self] action, index in
+            self?.performSegue(withIdentifier: "openComments", sender: indexPath.row)
+        }
+        comments.backgroundColor = .blue
+        comments.isAccessibilityElement = true
+        comments.accessibilityLabel = "Comments"
+        comments.accessibilityLabel = "Opens post comments"
+        
+        let save = UITableViewRowAction(style: .default, title: "Save") { action, index in
+            print("save, \(indexPath.row)")
+        }
+        save.backgroundColor = .orange
+        save.isAccessibilityElement = true
+        save.accessibilityLabel = "Save"
+        save.accessibilityHint = "Save post for later viewing"
+        
+        return [comments, save]
     }
 }
