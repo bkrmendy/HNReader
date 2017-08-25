@@ -27,18 +27,9 @@ class HNTableViewController: UITableViewController {
             _ = try? HNSavedItem.findOrCreateItem(matching: post.id!, in: context)
             try? context.save()
         })
-        printDBStats()
         let alert = UIAlertController(title: "", message: "Post saved!", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
-    }
-    
-    private func printDBStats() {
-        if let context = container?.viewContext {
-            if let postCount = try? context.count(for: HNSavedItem.fetchRequest()){
-                print("\(postCount) posts")
-            }
-        }
     }
     
     override func viewDidLoad() {
@@ -91,7 +82,7 @@ class HNTableViewController: UITableViewController {
                 if let commentsTable = navcon.visibleViewController as? CommentsTableViewController {
                     let index = sender as! Int
                     let post = HNposts?[index]
-                    commentsTable.comments = HNComment.loadCommentChildren(item: (post?.childrenIDs)!)
+                    commentsTable.commentsIDs = post?.childrenIDs
                 }
             }
         default:

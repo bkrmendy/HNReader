@@ -46,8 +46,7 @@ class HNItem {
     
     //used instead of init() because of the stupid "init() not called on all branches" issue
     func setup(json data: [String: Any]){
-        if let deleted = data["deleted"] as? Bool {
-            print(deleted)
+        if let _ = data["deleted"] as? Bool {
             self.deleted = true
         }
         self.id = data["id"] as? Int

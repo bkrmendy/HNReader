@@ -9,8 +9,6 @@
 import Foundation
 
 /*
- * fix comment formatting
  * address performance issues
  * add pimped-out browser
- * add better browser
  */
