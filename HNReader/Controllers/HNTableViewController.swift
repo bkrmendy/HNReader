@@ -12,18 +12,55 @@
 //
 
 import UIKit
+import CoreData
 
 class HNTableViewController: UITableViewController {
     
     var HNposts: [HNPost]?
     var category: String = "top"
     
+    var container: NSPersistentContainer? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
+    
+    
+    private func updateDataBase(saved post: HNPost) {
+        container?.performBackgroundTask({ context in
+            _ = try? HNSavedItem.findOrCreateItem(matching: post.id!, in: context)
+            try? context.save()
+        })
+        printDBStats()
+        let alert = UIAlertController(title: "", message: "Post saved!", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func printDBStats() {
+        if let context = container?.viewContext {
+            if let postCount = try? context.count(for: HNSavedItem.fetchRequest()){
+                print("\(postCount) posts")
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         super.viewDidLoad()
         switch category {
         case "saved":
-            //load from db
+            if let context = container?.viewContext {
+                let request: NSFetchRequest = HNSavedItem.fetchRequest()
+                if let posts = try? context.fetch(request)  {
+                    HNposts = [HNPost]()
+                    DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+                        for p in posts {
+                            let id: Int = Int(p.id!)!
+                            self?.HNposts?.append(HNPost(json: id))
+                        }
+                        DispatchQueue.main.async {
+                            self?.tableView.reloadData()
+                        }
+                    }
+                }
+            }
             break
         default:
             DispatchQueue.global(qos: .userInitiated).async { [weak self] in
@@ -101,8 +138,9 @@ class HNTableViewController: UITableViewController {
         comments.accessibilityLabel = "Comments"
         comments.accessibilityLabel = "Opens post comments"
         
-        let save = UITableViewRowAction(style: .default, title: "Save") { action, index in
-            print("save, \(indexPath.row)")
+        let save = UITableViewRowAction(style: .default, title: "Save") { [weak self] action, index in
+            let post = self?.HNposts?[indexPath.row]
+            self?.updateDataBase(saved: post!)
         }
         save.backgroundColor = .orange
         save.isAccessibilityElement = true
